@@ -6,8 +6,6 @@ import (
 	"testing"
 )
 
-// TODO Заменить названия "провален" на другое
-
 func TestMatchDSP(t *testing.T) {
 	testDSP := domain.DSP{
 		ID:                "test-dsp-001",
@@ -62,7 +60,7 @@ func TestMatchDSP(t *testing.T) {
 			wantMatched: true,
 		},
 		{
-			name: "провален: DSP не включен",
+			name: "негативный: DSP не включен",
 			req:  testReq,
 			dsp: func() domain.DSP {
 				d := testDSP
@@ -72,7 +70,7 @@ func TestMatchDSP(t *testing.T) {
 			wantMatched: false,
 		},
 		{
-			name: "провален: страна недоступна",
+			name: "негативный: страна недоступна",
 			req: func() domain.AuctionRequest {
 				r := testReq
 				r.Country = "US"
@@ -82,7 +80,7 @@ func TestMatchDSP(t *testing.T) {
 			wantMatched: false,
 		},
 		{
-			name: "провален: тип устройства недоступен",
+			name: "негативный: тип устройства недоступен",
 			req: func() domain.AuctionRequest {
 				r := testReq
 				r.DeviceType = "tv"
@@ -92,7 +90,7 @@ func TestMatchDSP(t *testing.T) {
 			wantMatched: false,
 		},
 		{
-			name: "провален: bid_floor меньше чем min_bid_floor партнёра",
+			name: "негативный: bid_floor меньше чем min_bid_floor партнёра",
 			req: func() domain.AuctionRequest {
 				r := testReq
 				r.BidFloor = 0.5
@@ -102,7 +100,7 @@ func TestMatchDSP(t *testing.T) {
 			wantMatched: false,
 		},
 		{
-			name: "провален: среди категорий есть заблокированная",
+			name: "негативный: среди категорий есть заблокированная",
 			req: func() domain.AuctionRequest {
 				r := testReq
 				r.Categories = []string{"gambling", "news"} // "gambling" заблокирован у партнера
