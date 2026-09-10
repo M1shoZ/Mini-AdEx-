@@ -1,0 +1,16 @@
+# Бинарники
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Тестовые бинарники и артефакты
+*.test
+*.out
+
+# IDE и OS
+.idea/
+.vscode/
+.DS_Store
