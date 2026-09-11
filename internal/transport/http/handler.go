@@ -61,7 +61,7 @@ func (h *Handler) handleAuction(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Возвращаем ответ
-	h.writeJSON(w, http.StatusOK, ToResponceDTO(result))
+	h.writeJSON(w, http.StatusOK, ToResponseDTO(result))
 
 }
 

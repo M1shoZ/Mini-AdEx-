@@ -92,7 +92,7 @@ func runMockServer(ctx context.Context, addr string, delay time.Duration, logger
 		time.Sleep(delay)
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte(`{"status: bid_received"}`))
+		_, _ = w.Write([]byte(`{"status": "bid_received"}`))
 	})
 
 	srv := &http.Server{

@@ -29,7 +29,7 @@ func TestMatchDSP(t *testing.T) {
 		name        string
 		req         domain.AuctionRequest
 		dsp         domain.DSP
-		wantMatched bool ``
+		wantMatched bool
 	}{
 		{
 			name:        "успешный: все условия выполнены",

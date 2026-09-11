@@ -52,7 +52,7 @@ type AuctionResponseDTO struct {
 	DurationMS  int64    `json:"duration_ms"`
 }
 
-func ToResponceDTO(res domain.AuctionResult) AuctionResponseDTO {
+func ToResponseDTO(res domain.AuctionResult) AuctionResponseDTO {
 	matched := res.MatchedDSPs
 	if matched == nil {
 		matched = []string{}
@@ -60,7 +60,7 @@ func ToResponceDTO(res domain.AuctionResult) AuctionResponseDTO {
 
 	return AuctionResponseDTO{
 		RequestID:   res.RequestID,
-		MatchedDSPs: res.MatchedDSPs,
+		MatchedDSPs: matched,
 		Sent:        res.Sent,
 		Succeeded:   res.Succeeded,
 		DurationMS:  res.DurationMs,

@@ -6,7 +6,7 @@ import (
 	"slices"
 )
 
-// TODO: сделать в логах вывод имени партнера, искать заблокированные категории через мапу для увеличения эффективности
+// TODO: искать заблокированные категории через мапу для увеличения эффективности
 
 // Проверяет подходит ли DSP под параметры запроса
 // При успешном сопоставлении возвращает true и пустую строку
@@ -24,7 +24,7 @@ func MatchDSP(req domain.AuctionRequest, dsp domain.DSP) (bool, string) {
 
 	// Проверка совместимости типа устройства
 	if len(dsp.DeviceTypes) != 0 && !slices.Contains(dsp.DeviceTypes, req.DeviceType) {
-		return false, fmt.Sprintf("Устройство типа %q не поддерживается партнёром", req.Country)
+		return false, fmt.Sprintf("Устройство типа %q не поддерживается партнёром", req.DeviceType)
 	}
 
 	// Проверка цены
