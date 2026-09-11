@@ -1,17 +1,17 @@
 package domain
 
 type AuctionRequest struct {
-	RequestID  string   `json:"request_id"`
-	Country    string   `json:"country"`
-	DeviceType string   `json:"device_type"`
-	BidFloor   float64  `json:"bid_floor"`
-	Categories []string `json:"categories"`
+	RequestID  string
+	Country    string
+	DeviceType string
+	BidFloor   float64
+	Categories []string
 }
 
 type AuctionResult struct {
-	RequestID   string   `json:"request_id"`
-	MatchedDSPs []string `json:"matched_dsps"`
-	Sent        int      `json:"sent"`
-	Succeeded   int      `json:"succeeded"`
-	DurationMs  int64    `json:"duration_ms"`
+	RequestID   string
+	MatchedDSPs []string
+	Sent        int
+	Succeeded   int
+	DurationMs  int64
 }

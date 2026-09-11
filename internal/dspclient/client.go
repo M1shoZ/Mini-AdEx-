@@ -31,7 +31,7 @@ func (c *HTTPClient) SendBidRequest(ctx context.Context, dsp domain.DSP, req dom
 		return fmt.Errorf("Ошибка при сериализации: %w", err)
 	}
 
-	httpReq, err := http.NewRequestWithContext(ctx, http.MethodGet, dsp.Endpoint, bytes.NewReader(payload))
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodPost, dsp.Endpoint, bytes.NewReader(payload))
 	if err != nil {
 		return fmt.Errorf("Не удалось создать запрос: %w", err)
 	}
